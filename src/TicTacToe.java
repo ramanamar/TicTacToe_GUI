@@ -58,21 +58,6 @@ public class TicTacToe {
         return true;
     }
 
-    /*public static boolean checkWin(char ox) {
-        if (map[0][0] == ox && map[1][0] == ox && map[2][0] == ox) return true;
-        if (map[0][1] == ox && map[1][1] == ox && map[2][1] == ox) return true;
-        if (map[0][2] == ox && map[1][2] == ox && map[2][2] == ox) return true;
-
-        if (map[0][0] == ox && map[0][1] == ox && map[0][2] == ox) return true;
-        if (map[1][0] == ox && map[1][1] == ox && map[1][2] == ox) return true;
-        if (map[2][0] == ox && map[2][1] == ox && map[2][2] == ox) return true;
-
-        if (map[0][0] == ox && map[1][1] == ox && map[2][2] == ox) return true;
-        if (map[2][0] == ox && map[1][1] == ox && map[0][2] == ox) return true;
-
-        return false;
-    }*/
-
     public static boolean isMapFull() {
         for (int i = 0; i < FIELD_SIZE; i++) {
             for (int j = 0; j < FIELD_SIZE; j++) {
