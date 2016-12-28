@@ -11,7 +11,7 @@ public class Cat extends Animal {
     }
 
     @Override
-    public void swim() {
+    public void swim(float swimDist) {
         System.out.println(name + " don't want to swim!");
     }
 }

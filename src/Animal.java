@@ -4,8 +4,8 @@
 public abstract class Animal {
     protected String name;
     protected String type;
-    protected int runDist;
-    protected int swimDist;
+    protected float runDist;
+    protected float swimDist;
     protected float jumpHeight;
 
     public Animal(String name) {
@@ -16,15 +16,15 @@ public abstract class Animal {
         System.out.println(type + " " + name);
     }
 
-    public void run() {
+    public void run(float runDist) {
         System.out.println(type + " " + name + " running " + runDist + " m.");
     }
 
-    public void swim() {
+    public void swim(float swimDist) {
         System.out.println(type + " " + name + " swimming " + swimDist + " m.");
     }
 
-    public void jump() {
+    public void jump(float jumpHeight) {
         System.out.println(type + " " + name + " jumping " + jumpHeight + " m.");
     }
 }
