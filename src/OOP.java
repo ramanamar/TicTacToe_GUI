@@ -13,5 +13,18 @@ public class OOP {
         for (int i = 0; i < emplArr.length; i++) {
             if (emplArr[i].getAge() > 40) emplArr[i].info();
         }
+
+        Animal[] animals = new Animal[3];
+        animals[0] = new Cat("Barsik");
+        animals[1] = new Dog("Barbos");
+        animals[2] = new Horse("Berezka");
+
+        for (int i = 0; i < animals.length; i++) {
+            animals[i].info();
+            animals[i].run();
+            animals[i].swim();
+            animals[i].jump();
+            System.out.println();
+        }
     }
 }
