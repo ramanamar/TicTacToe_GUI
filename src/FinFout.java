@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Created by Raman on 29/12/2016.
@@ -6,55 +7,88 @@ import java.io.*;
 public class FinFout {
     public static void main(String[] args) {
         try {
-            /*FileInputStream fin1 = new FileInputStream("1.txt");
+            /*Byte reading*/
+            FileInputStream fin = new FileInputStream("1.txt");
+            FileOutputStream fout = new FileOutputStream("3.txt");
+
             int a;
             do {
-                a = fin1.read();
-                System.out.print((char) a);
+                a = fin.read();
+                if (a != -1) fout.write(a);
             } while (a != -1);
-            System.out.println();
-            System.out.println();
+            fin.close();
 
-            FileInputStream fin2 = new FileInputStream("2.txt");
-            int b;
+            fin = new FileInputStream("2.txt");
             do {
-                b = fin2.read();
-                System.out.print((char) b);
-            } while (b != -1);*/
+                a = fin.read();
+                if (a != -1) fout.write(a);
+            } while (a != -1);
+            if (fin != null) fin.close();
+            if (fout != null) fout.close();
+
+//            String a1 = "Hello world! \n";
+//            String a2 = "Hullu wirld!";
+//            byte[] wbr1 = a1.getBytes("UTF-8"), wbr2 = a2.getBytes("UTF-8");
+
+            /*PrintWriter pw = new PrintWriter(new FileWriter("3.txt"));
 
             BufferedReader br1 = new BufferedReader(new FileReader("1.txt"));
             String s1;
             do {
                 s1 = br1.readLine();
-                System.out.println(s1);
+                pw.write(s1, 1, s1.length());
+//                System.out.println(s1);
             } while (s1 != null);
             BufferedReader br2 = new BufferedReader(new FileReader("2.txt"));
             String s2;
             do {
                 s2 = br2.readLine();
-                System.out.println(s2);
+//                pw.write(s2);
+//                System.out.println(s2);
             } while (s2 != null);
 
-            /*PrintWriter pw = new PrintWriter(new FileWriter("3.txt"));
             pw.println(br1);
-            pw.println(br2);
+//            pw.println(br2);
             pw.flush();
-            pw.close();*/
-            String a1 = "Hello world! \n";
-            String a2 = "Hullu wirld!";
-            byte[] wbr1 = a1.getBytes("UTF-8"), wbr2 = a2.getBytes("UTF-8");
-            FileOutputStream fout = new FileOutputStream("3.txt");
-            fout.write(wbr1);
-            fout.write(wbr2);
-            fout.close();
+            pw.close();
+*/
         } catch (Exception e) {
             e.printStackTrace();
         }
+        long t1 = System.currentTimeMillis();
+        find();
+        long t2 = System.currentTimeMillis();
+        System.out.println(t2 -t1);
 
-//        byte[] w = a.getBytes();
-//        StringBuilder sb = new StringBuilder("1.txt");
-//        for (int i = 0; i < ; i++) {
-//            sb.append("2.txt");
-//        }
     }
+
+    /*Byte Find text in file*/
+    public static void find() {
+        String a = "Best";
+        byte[] b = a.getBytes();
+        System.out.println(Arrays.toString(b));
+        int c = 0;
+        int pointer = 0;
+
+        try {
+            BufferedInputStream reader = new BufferedInputStream(new FileInputStream("3.txt"));
+//            FileInputStream reader = new FileInputStream("3.txt");
+
+            int x;
+            do {
+                pointer++;
+                x = reader.read();
+                if (b[c] == x) {
+                    c++;
+                    if (c == b.length) {
+                        System.out.println("WIN at " + (pointer - c));
+                        break;
+                    }
+                } else c = 0;
+            } while (x != -1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
