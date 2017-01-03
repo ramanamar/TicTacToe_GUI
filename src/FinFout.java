@@ -40,7 +40,7 @@ public class FinFout {
             pw.println(br2);
             pw.flush();
             pw.close();*/
-            String a1 = "Hello world!";
+            String a1 = "Hello world! \n";
             String a2 = "Hullu wirld!";
             byte[] wbr1 = a1.getBytes("UTF-8"), wbr2 = a2.getBytes("UTF-8");
             FileOutputStream fout = new FileOutputStream("3.txt");

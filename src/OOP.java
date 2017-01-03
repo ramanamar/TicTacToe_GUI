@@ -21,9 +21,9 @@ public class OOP {
 
         for (int i = 0; i < animals.length; i++) {
             animals[i].info();
-            animals[i].run();
-            animals[i].swim();
-            animals[i].jump();
+            animals[i].run(100);
+            animals[i].swim(50);
+            animals[i].jump(2);
             System.out.println();
         }
     }
