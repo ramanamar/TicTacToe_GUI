@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
+import java.util.StringJoiner;
 
 /**
  * Created by Raman on 04/01/2017.
@@ -17,6 +18,11 @@ public class TicTacToeGameMap extends JPanel {
     private int[][] map;
     private int currentPlayer;
     private String gameOver = "";
+    private String opponents = "H-AI"; //H-AI, H-H
+
+    public void setOpponents(String opponents) {
+        this.opponents = opponents;
+    }
 
     public TicTacToeGameMap() {
         setBackground(Color.WHITE);
