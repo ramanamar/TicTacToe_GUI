@@ -44,15 +44,50 @@ public class TicTacToeGUI extends JFrame {
         jpStartOrExit.add(jbNewGame);
         jpStartOrExit.add(jbExitGame);
         JPanel jpOpponents = new JPanel(new GridLayout());
+        JPanel jpGameConditions = new JPanel(new GridLayout());
+        JButton jb3x3 = new JButton("Field: 3x3 Win: 3");
+        JButton jb5x5 = new JButton("Field: 5x5 Win: 4");
+        JButton jb10x10 = new JButton("Field: 10x10 Win: 5");
+        jpGameConditions.add(jb3x3);
+        jpGameConditions.add(jb5x5);
+        jpGameConditions.add(jb10x10);
         JButton jbHumanVsHuman = new JButton("Human vs. Human");
         JButton jbHumanVsAI = new JButton("Human vs. AI");
         jpOpponents.add(jbHumanVsHuman);
         jpOpponents.add(jbHumanVsAI);
 
+        jb3x3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gamePanel.setConditions(3, 3);
+                gamePanel.startGame();
+                ((CardLayout) bottomPanel.getLayout()).show(bottomPanel, "jpStartOrExit");
+            }
+        });
+
+        jb5x5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gamePanel.setConditions(5, 4);
+                gamePanel.startGame();
+                ((CardLayout) bottomPanel.getLayout()).show(bottomPanel, "jpStartOrExit");
+            }
+        });
+
+        jb10x10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gamePanel.setConditions(10, 5);
+                gamePanel.startGame();
+                ((CardLayout) bottomPanel.getLayout()).show(bottomPanel, "jpStartOrExit");
+            }
+        });
+
         jbHumanVsHuman.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gamePanel.setOpponents("H-H");
+                ((CardLayout) bottomPanel.getLayout()).show(bottomPanel, "jpGameConditions");
             }
         });
 
@@ -60,12 +95,14 @@ public class TicTacToeGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gamePanel.setOpponents("H-AI");
+                ((CardLayout) bottomPanel.getLayout()).show(bottomPanel, "jpGameConditions");
             }
         });
 
         bottomPanel.setLayout(new CardLayout());
         bottomPanel.add(jpStartOrExit, "jpStartOrExit");
         bottomPanel.add(jpOpponents, "jpOpponents");
+        bottomPanel.add(jpGameConditions, "jpGameConditions");
 
 //        bottomPanel.setPreferredSize(new Dimension(1, 40));
 
