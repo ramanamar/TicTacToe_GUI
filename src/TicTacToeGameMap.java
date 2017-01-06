@@ -54,7 +54,7 @@ public class TicTacToeGameMap extends JPanel {
                     checkWin(1);
                     if (gameOver.isEmpty()) isFieldFull();
                     repaint();
-                    return;
+                    if (opponents.equals("H-H")) return;
                 }
 
                 if (gameOver.isEmpty() && currentPlayer == 2) {
